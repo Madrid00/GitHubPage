@@ -1,40 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporte Semanal - Desarrollo de Software</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Mesual - Desarrollo de Software</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d6cea8b5b2.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--Chart 1-->
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+         ['Element', 'Tickets', { role: 'style' }],
+         ['En Análisis Interno', 1, '#0080ED'],            // RGB value
+         ['En Proceso', 3, 'red'],            // English color name
+         ['Pruebas de Usuario', 5, 'orange'],
+
+       ['En espera de Información', 2, 'color: green' ], // CSS-style declaration
+      ]);
+
+        var options = {'title':'Gran Total de Tickets: 11',
+                       'width':500,
+                       'height':300};
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!--Chart 2-->
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(columnChart);
+
+      function columnChart() {
+
+        var data = google.visualization.arrayToDataTable([
+         ['Element', 'Tickets', { role: 'style' }],
+         ['CALZADA', 199, '#0080ED'],            // RGB value
+         ['End To End', 179, 'red'],            // English color name
+         ['FANDELI', 124, 'orange'],
+         ['RECUBRE', 90, 'color: green' ],
+         ['CARREDANA', 78, 'color: #0080ED' ],
+         ['TREVOX', 52, 'color: red' ],
+         ['CESANTONI', 24, 'color: orange' ],
+         ['VIMAR', 19, 'color: green' ],
+         ['ATRAMAT', 12, 'color: #0080ED' ],
+         ['TELVISTA', 11, 'color: red' ],
+         ['CASA DIAZ', 11, 'color: orange' ],
+         ['ROYAL', 4, 'color: green' ],
+         ['PASIEGA', 3, 'color: #0080ED' ],
+         ['CERILLERA', 2, 'color: red' ],
+         ['EUTECTIC', 2, 'color: orange' ],
+         ['OFFICE DEPORT', 2, 'color: green' ],
+         ['CRUZ AZUL', 1, 'color: #0080ED' ],
+         ['POPULAR', 1, 'color: red' ],
+      ]);
+
+        var options = {'title':'Gran Total de Tickets: 814',
+                       'width':600,
+                       'height':600};
+                       
+        var chart = new google.visualization.BarChart(document.getElementById('Barchart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!--Chart 3-->
+    <script type="text/javascript">
+
+    google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(pieChart);
+
+        function pieChart() {
+
+          var data = google.visualization.arrayToDataTable([
+         ['Element', 'Tickets', { role: 'style' }],
+         ['LOPEZ GARCIA CARLOS GUSTAVO', 554, '#0080ED'],            // RGB value
+         ['TORRES MACIAS LUIS', 87, 'red'],            // English color name
+         ['MADRID PEREZ CESAR', 83, 'orange'],
+         ['JULIAN HERNANDEZ LUIS FERNANDO', 47, 'color: green' ],
+         ['GUTIERREZ AGUILAR SANDRA EDUWIGES', 20, 'color: #0080ED' ],
+         ['BALDERAS FLORES JOSUA JEREMY', 5, 'color: red' ],
+         ['MEDINA LOPEZ EDITH', 2, 'color: orange' ],
+         ['AMARO GARCIA DIANA GUADALUPE', 2, 'color: green' ],
+         ['END TO END COMERCIAL', 2, 'color: #0080ED' ],
+         ['AYALA MORENO RAUL', 2, 'color: red' ],
+         ['VAZQUEZ PEREZ CESAR OCTAVIO', 2, 'color: orange' ],
+         ['SORIA GUTIERREZ JORGE ARTURO', 2, 'color: green' ],
+         ['PADILLA LEAL GUILLERMO', 1, 'color: #0080ED' ],
+         ['ISLAS PEÑA BRANDON IVAN', 1, 'color: red' ],
+         ['PALACIAS MARTINEZ RICARDO DANIEL', 1, 'color: orange' ],
+         ['TRIANO CARBALLO ABELARDO', 1, 'color: green' ],
+         ['AUGDEY RODRIGUEZ JEAN PAUL', 1, 'color: #0080ED' ],
+         ['FERRETERIAS CALZADA CALZADA', 1, 'color: red' ],
+      ]);
+
+          var options = {
+            title: 'Gran Total de Tickets: 814',
+            width: 600,
+            height: 500
+          };
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('pieChart_div'));
+          chart.draw(data, options);
+      }
+    </script>
 </head>
 <style>
-  :root{
-      --greenCircle: #1DB40D;
-      --blueCircle: #0662BC;
-      --background-successProyect: #C8C8C8;
-      --navbar-background: linear-gradient(#04519b, #044687 60%, #033769);
-	  --color-pruebas: green;
-	  --color-process: orange;
-  }
+    :root{
+        --greenCircle: #1DB40D;
+        --blueCircle: #0662BC;
+        --background-successProyect: #C8C8C8;
+        --navbar-background: linear-gradient(#04519b, #044687 60%, #033769);
+    }
 
-  .card{
-      width: 95%;
-      margin: auto;
-      border-radius: 10px;
-  }
-  .navbar{
-      background: var(--navbar-background);
-  }
-  
-  img{
-      width: 100%;
-  }
+    .descriptModal{
+      background: lightsteelblue;
+    }
 
-  .logoE2E .img{
-      width: 10%;
-  }
+    .successProyect{
+        background: var(--background-successProyect);
+    }
 
-  th, td{
+    .successProyect td{
+        border-bottom: 1px solid #A19F9F;
+    }
+    .card{
+        width: 95%;
+        margin: auto;
+        border-radius: 10px;
+    }
+    .navbar{
+        background: var(--navbar-background);
+    }
+    
+    img{
+        width: 100%;
+    }
+
+    th, td{
         padding: 0 9px;
         border-bottom: 1px solid #DADADA;
     }
@@ -56,269 +167,2051 @@
         background: #F1EFEF;
     }
 
-    footer{
-      position: relative;
-      bottom: 0;
-      right: 0;
+    th:nth-child(15), th:nth-child(17), th:nth-child(19){
+        width: 52px;
+        word-wrap: break-word;
     }
-    @keyframes slide{}
+
+    #greenCircle{
+        color: var(--greenCircle);
+    }
+
+    #blueCircle{
+        color: var(--blueCircle);
+    }
+
+    .logoE2E .img{
+        width: 10%;
+    }
+
+    
+    .logoE2E .subCard{
+        width: 20%;
+    }
+
+
+    .imgModal img{
+        width: 30%;
+        border-radius: 50%;
+    }
+
+    .linkModal, 
+    .linkModal:link,
+    .linkModal:visited, 
+    .linkModal:hover, 
+    .linkModal:active{
+        text-decoration: none;
+    }
+
+    .reportTitle{
+        font-size: 35px;
+        text-align: center;
+        font-weight: 500;
+    }
+    
+    .Subcardtitle{
+      font-size: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .PrimarycardTtitle{
+      font-size: 25px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .titleCard1{
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+
+    table, .reportTitle{
+        animation-name: slideTable;
+        animation-duration: 1s;
+    }
+
+    @keyframes slideTable {
+        from{
+            margin-right: -300px;
+            opacity: 0;
+        }
+        to{
+            margin-right: 0;
+            opacity: 1;
+        }
+    }
+
+    .modal{
+        animation-name: showScale;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes showScale {
+        0%{opacity: 0; transform: scale(0);}
+        25%{opacity: 0.25; transform: scale(0.25);}
+        50%{opacity: 0.50; transform: scale(0.50);}
+        75%{opacity: 0.75; transform: scale(0.75);}
+        100%{opacity: 1; transform: scale(1);}
+    }
+
+    .pagination nav{
+      margin: auto;
+    }
+
+    .input-group{
+      width: 25%;
+      float: left;
+    }
 </style>
 <body>
-  <!--NavBar Ménu-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#" style="width: 10%;">
-        <img src="https://endtoend.com.mx/wp-content/uploads/2015/04/slogan_end_to_end.png">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active"> -->
-          <!-- <a class="nav-link" href="#tableProyect">Proyectos <span class="sr-only"></span></a> -->
-        <!-- </li> -->
-        <!-- <li class="nav-item"> -->
-          <!-- <a class="nav-link" href="#tickets">Tickets</a> -->
-        <!-- </li> -->
-        <!-- <li class="nav-item"> -->
-          <!-- <a class="nav-link" href="#dashboardTickets">DashBoard Tickets</a> -->
-        <!-- </li> -->
-      </ul>
-      <span class="navbar-text">
-        Desarrollo de Software
-      </span>
+    <!--Script Paginación-->
+    <!--Fin Script Paginación-->
+    <!--NavBar Ménu-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="width: 10%;">
+            <img src="https://endtoend.com.mx/wp-content/uploads/2015/04/slogan_end_to_end.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#tableProyect">Proyectos <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tickets">Tickets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#dashboardTickets">DashBoard Tickets</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Desarrollo de Software
+          </span>
+        </div>
+      </nav>
+    <!--Fin de NavBar Ménu-->
+    <!--Table Proyectos-->
+    <br>
+    <div class="tableProyect">
+        <div class="card">
+            <div class="card-body">
+                <div class="logoE2E">
+                    <img class="img" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
+                </div>
+                <div class="reportTitle">
+                  Proyectos
+                </div>
+                <table class="display" id="example" data-page-lenght='25'>
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Ene</th>
+                                <th>Mar</th>
+                                <th>Jun</th>
+                                <th>Jul</th>
+                                <th>Ago</th>
+                                <th>Sep</th>
+                                <th>Oct</th>
+                                <th>Dic</th>
+                                <th>Detalle</th>
+                                <th>Abiertos</th>
+                                <th><a class="linkModal" data-toggle="modal" href="#SandyModal">Sandra</a></th>
+                                <th><a class="linkModal" data-toggle="modal" href="#LuisModal">Luis F.</a></th>
+                                <th><a class="linkModal" data-toggle="modal" href="#CesarMModal">César Madrid</a></th>
+                                <th><a class="linkModal" data-toggle="modal" href="#RaulModal">Raúl</a></th>
+                                <th><a class="linkModal" data-toggle="modal" href="#CesarOModal">César Vázquez</a></th>
+                                <th><a class="linkModal" data-toggle="modal" href="#FranciscoModal">Francisco</a></th>
+                                <th><a class="linkModal" data-toggle="modal" href="#BeatrizModal">Ana Beatriz</a></th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Ayvi</td>
+                            <td>Mobile Warehouse</td>
+                            <td> </td><!--%-->
+                            <td> </td><!--%-->
+                            <td> </td><!--%-->
+                            <td>90%</td><!--%-->
+                            <td>90%</td><!--%-->
+                            <td>50%</td><!--%-->
+                            <td>80%</td><!--%-->
+                            <td>90%</td><!--%-->
+                            <td>Nuevos Requerimientos</td><!--Detalle-->
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td><!--Abierto-->
+                            <td> </td><!--Sandy-->
+                            <td> </td><!--Luis F--->
+                            <td> </td><!--César Madrid-->
+                            <td> </td><!--Raúl-->
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Vázquez-->
+                            <td> </td><!--Francisco-->
+                            <td> </td><!--Ana Beatriz-->
+                        </tr>
+                        <tr>
+                            <td>Calzada</td>
+                            <td>Pedidos de crédito en POS</td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>0%</td>
+                            <td> </td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Casa Díaz</td>
+                            <td>Nuevos requerimientos POS</td>
+                            <td>80%</td>
+                            <td>70%</td>
+                            <td>90%</td>
+                            <td>95%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>Nuevos requerimientos</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Casa Díaz</td>
+                            <td>Portal Mayoristas</td>
+                            <td>95%</td>
+                            <td>85%</td>
+                            <td>85%</td>
+                            <td>85%</td>
+                            <td>85%</td>
+                            <td>85%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Cruz Azul</td>
+                            <td>Portal de Proveedores</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td>Nuevos requerimientos</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Cruz Azul</td>
+                            <td>Talanqueras</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Fandeli</td>
+                            <td>Mobile Warehouse 2° fase</td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>Esperando pruebas del cliente</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td></td>
+                            <td> </td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Fandeli (Proyecto Interno)</td>
+                            <td>Migración de Backend de .Net a Java</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>70%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                            <td></td>
+                            <td> </td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>Hellermann Tyton</td>
+                            <td>Facturación electrónica, Addendas y PAC</td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>30%</td>
+                            <td>60%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>Esperando liberación del cliente</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Profina</td>
+                            <td>Demo de app móvil</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Royal</td>
+                            <td>Portal de proveedores</td>
+                            <td>80%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>Requerimiento</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Senda</td>
+                            <td>Facturación electrónica</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>90%</td>
+                            <td>Esperando pruebas del cliente</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Senda</td>
+                            <td>Web Services de Integración</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>5%</td>
+                            <td>75%</td>
+                            <td>95%</td>
+                            <td>Esperando pruebas del cliente</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Senda</td>
+                            <td>Web Services One Card</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>70%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!--15 Registros-->
+                        <!--Paginación-->
+                        <tr>
+                            <td>Todos</td>
+                            <td>Proveedor eKomercio</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>20%</td>
+                            <td>20%</td>
+                            <td>20%</td>
+                            <td>En enero 2020 se reactiva</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Todos</td>
+                            <td>Servicio de control de email</td>
+                            <td>50%</td>
+                            <td>70%</td>
+                            <td>70%</td>
+                            <td>70%</td>
+                            <td>70%</td>
+                            <td>70%</td>
+                            <td>70%</td>
+                            <td>70%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Todos (Facturación)</td>
+                            <td>Implementación de Cancelación de Facturas</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td>60%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Todos (Portal de proveedores)</td>
+                            <td>Modificación en el esquema de impuestos</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td>10%</td>
+                            <td>Definición de requerimientos</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Todos (Portal de configuración)</td>
+                            <td>Portal de configuración</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Trevox</td>
+                            <td>Portal de Gastos 2° fase</td>
+                            <td></td>
+                            <td></td>
+                            <td>20%</td>
+                            <td>20%</td>
+                            <td>60%</td>
+                            <td>80%</td>
+                            <td>95%</td>
+                            <td>95%</td>
+                            <td>Esperando pruebas del cliente</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Trevox</td>
+                            <td>Portal Mayoristas (pruebas)</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>85%</td>
+                            <td>95%</td>
+                            <td></td>
+                            <td>Esperando pruebas del cliente</td>
+                            <td><i class="fas fa-circle" id="greenCircle"></i></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!--Proyectos Completados-->
+                        <tr class="successProyect">
+                            <td>Ayvi</td>
+                            <td>Contabilidad Electrónica</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>70%</td>
+                            <td>80%</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Calzada</td>
+                            <td>POS de Calzada</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td>90%</td>
+                            <td></td>
+                            <td>Queda en standby</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Calzada</td>
+                            <td>Web Services OSC</td>
+                            <td></td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Casa Díaz</td>
+                            <td>Portal de Clientes</td>
+                            <td></td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Casa Díaz</td>
+                            <td>Portal de Proveedores (nuevos requerimientos)</td>
+                            <td>0%</td>
+                            <td>50%</td>
+                            <td>50%</td>
+                            <td>50%</td>
+                            <td>50%</td>
+                            <td>50%</td>
+                            <td>50%</td>
+                            <td></td>
+                            <td>Queda en standby</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Casa Díaz</td>
+                            <td>POS de Casa Díaz</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Cerillera</td>
+                            <td>Portal de Proveedores</td>
+                            <td></td>
+                            <td>30%</td>
+                            <td>80%</td>
+                            <td>80%</td>
+                            <td>80%</td>
+                            <td>85%</td>
+                            <td>95%</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Cruz Azul</td>
+                            <td>Portal de Proveedores</td>
+                            <td></td>
+                            <td>70%</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Cruz Azul</td>
+                            <td>Portal de Proveedores (Fletes)</td>
+                            <td></td>
+                            <td></td>
+                            <td>90%</td>
+                            <td>95%</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>EEEISA</td>
+                            <td>Portal de Proveedores</td>
+                            <td></td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>5%</td>
+                            <td>5%</td>
+                            <td>5%</td>
+                            <td></td>
+                            <td>Cancelado</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Eutectic</td>
+                            <td>Contabilidad Electrónica</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Eutectic</td>
+                            <td>Facturación (adendas)</td>
+                            <td>95%</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fas fa-circle" id="blueCircle"></i></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Eutectic</td>
+                            <td>Facturación (pruebas)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Eutectic</td>
+                            <td>Modificación Addendas</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>95%</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td>Modificación de addenda Mabe</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="successProyect">
+                            <td>Eutectic</td>
+                            <td>Modificación Factura PDF</td>
+                            <td></td><!--%-->
+                            <td></td><!--%-->
+                            <td>80%</td><!--%-->
+                            <td>80%</td><!--%-->
+                            <td>95%</td><!--%-->
+                            <td>100%</td><!--%-->
+                            <td></td><!--%-->
+                            <td></td><!--%-->
+                            <td>Esperando liberación del cliente</td><!--Detalle-->
+                            <td></td><!--Abierto-->
+                            <td></td><!--Sandy-->
+                            <td></td><!--Luis F-->
+                            <td></td><!--César Madrid-->
+                            <td></td><!--Raúl-->
+                            <td></td><!--César Vázquez-->
+                            <td></td><!--Francisco-->
+                            <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Complemento de Pago</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Facturación electrónica (Traspasos)</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>0%</td><!--%-->
+                          <td>0%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Metadata 1° fase</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Mobile Warehouse</td>
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Modificación de servicio Onest</td>
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Portal de Proveedores (modificaciones)</td>
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Portal de Proveedores 2° fase</td>
+                          <td></td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td>Se hicieron las correcciones</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Portal Mayoristas</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Fandeli</td>
+                          <td>Servicio de Lista Negra</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>30%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>En proceso de liberación</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Jaguar</td>
+                          <td>Portal de Proveedores para DB2</td>
+                          <td></td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>MMC</td>
+                          <td>Contabilidad Electrónica</td>
+                          <td></td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>MMC</td>
+                          <td>Portal de Proveedores (solución custom)</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>70%</td><!--%-->
+                          <td>85%</td><!--%-->
+                          <td>85%</td><!--%-->
+                          <td>75%</td><!--%-->
+                          <td>85%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td>Nuevos requerimientos</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Office Depot</td>
+                          <td>Web Service Banxico</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>85%</td><!--%-->
+                          <td>85%</td><!--%-->
+                          <td>75%</td><!--%-->
+                          <td>85%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Office Depot</td>
+                          <td>Web Services Oracle</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Office Depot</td>
+                          <td>Web Services Uuid Pegaso</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>No se concluyó</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Pasiega</td>
+                          <td>Instalación de POS y Facturación</td>
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Probiomed</td>
+                          <td>Contabilidad Electrónica</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Recubre</td>
+                          <td>Catálogo Web Recubre</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Recubre</td>
+                          <td>Catálogo Web Recubre (modificaciones)</td>
+                          <td>60%</td><!--%-->
+                          <td>60%</td><!--%-->
+                          <td>50%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Recubre</td>
+                          <td>POS (Modificaciones)</td>
+                          <td>0%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Recubre</td>
+                          <td>Web Service Mapcel</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Telvista</td>
+                          <td>Portal de Proveedores para SQL Server (modificaciones)</td>
+                          <td>60%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Todos (Facturación)</td>
+                          <td>Facturación (Complemento de pago)</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Todos (Facturación)</td>
+                          <td>Facturación (Complemento detallista)</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Todos (Facturación)</td>
+                          <td>Nuevo proveedor STO</td>
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Trevox</td>
+                          <td>Portal de Gastos</td>
+                          <td>0%</td><!--%-->
+                          <td>0%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Trevox</td>
+                          <td>Portal de Proveedores</td>
+                          <td>0%</td><!--%-->
+                          <td>0%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Sandy-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Trevox</td>
+                          <td>Portal de Proveedores (servicio de notificación)</td>
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>Esperando pruebas del cliente</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Trevox</td>
+                          <td>Web Service Salesforce</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Unopetrol</td>
+                          <td>Facturación Electrónica</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>20%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>95%</td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Valle Redondo</td>
+                          <td>Portal de Proveedores (modificaciones)</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>90%</td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Vimar</td>
+                          <td>Portal de Proveedores (modificaciones)</td>
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>80%</td><!--%-->
+                          <td>No se pasó a producción</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td><i class="fas fa-circle" id="blueCircle"></i></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                        <tr class="successProyect">
+                          <td>Veolia</td>
+                          <td>Modificaciones Portal de Gastos</td>
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td></td><!--%-->
+                          <td>100%</td><!--%-->
+                          <td>No se pasó a producción</td><!--Detalle-->
+                          <td></td><!--Abierto-->
+                          <td></td><!--Sandy-->
+                          <td></td><!--Luis F-->
+                          <td></td><!--César Madrid-->
+                          <td></td><!--Raúl-->
+                          <td></td><!--César Vázquez-->
+                          <td></td><!--Francisco-->
+                          <td></td><!--Ana Beatriz-->
+                        </tr>
+                    </tbody>
+                </table>
+                <!--Paginación-->
+                <!--Fin Paginación-->
+            </div>
+        </div>
     </div>
-  </nav>
-  <br/>
-<!--Fin de NavBar Ménu-->
-<!--Primer Reporte Semanal1-->
-<!-- <div class="container-fluid">
-  <div class="card">
-    <div class="card-body">
-      <div class="logoE2E">
-        <img class="img" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
-      </div>
-      <h5 class="card-title" align="center">Reporte Semanal #1</h5>
-      <div class="tableReport" align="center">
-        <table>
-          <thead>
-            <tr>
-              <th># Actividad</th>
-              <th>Plataforma</th>
-              <th>Actividad</th>
-              <th># Ticket/Actividad</th>
-              <th>Tiempo de Atención(hrs)</th>
-              <th>Estatus</th>
-              <th>Fecha Reporte</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Contact Center</td>
-              <td>Atención Ticket</td>
-              <td>2027344</td>
-              <td>1</td>
-              <td style="color:var(--color-pruebas);"><strong>Pruebas</strong></td>
-              <td>19/06/2020</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Contact Center</td>
-              <td>Atención Ticket</td>
-              <td>2027261</td>
-              <td>1</td>
-              <td style="color:var(--color-pruebas);"><strong>Pruebas</strong></td>
-              <td>19/06/2020</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Active Collab</td>
-              <td>#444: FCA_Proyecto La Fragua</td>
-              <td>#13: IDS Error al generar la nota de crédito</td>
-              <td>1</td>
-              <td style="color:var(--color-process);"><strong>En Proceso</strong></td>
-              <td>19/06/2020</td>
-            </tr>
-          </tbody>
-        </table>
-        <br/>
-        <div class="comentary">
-          <h5>Comentarios</h5>
-          <p>
-			<strong>
-				El desempeño que ha presentado José Antonio es bueno, aprende rápido y tiene disposición de trabajo referente 
-				a que siempre está en contacto conmigo para más actividades. El único inconveniente que encuentro es que no 
-				tiende a ser autodidacta y por ende espera ayuda y/o una respuesta por todo.
-			</strong>
-		  </p>
+    <!--Fin tabla Proyectos-->
+    <br>
+    <br>
+    <!--Tickets-->
+    <div id="tickets">
+      <!--Card 1-->
+      <div class="card">
+        <div class="card-body">
+          <div class="logoE2E">
+            <img class="img" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
+          </div>
+          <div class="PrimarycardTtitle">
+            Tickets creados por mes
+          </div>
+          <div class="row">
+            <div class="col-md-4" align="center" style="margin: auto;">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>2018</strong></td>
+                    <td><strong>317</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Jul</td>
+                    <td>76</td>
+                  </tr>
+                  <tr>
+                    <td>Ago</td>
+                    <td>32</td>
+                  </tr>
+                  <tr>
+                    <td>Sep</td>
+                    <td>75</td>
+                  </tr>
+                  <tr>
+                    <td>Oct</td>
+                    <td>48</td>
+                  </tr>
+                  <tr>
+                    <td>Nov</td>
+                    <td>58</td>
+                  </tr>
+                  <tr>
+                    <td>Dic</td>
+                    <td>28</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-4" align="center" style="margin: auto;">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>2019</strong></td>
+                    <td><strong>483</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Ene</td>
+                    <td>45</td>
+                  </tr>
+                  <tr>
+                    <td>Feb</td>
+                    <td>27</td>
+                  </tr>
+                  <tr>
+                    <td>Mar</td>
+                    <td>51</td>
+                  </tr>
+                  <tr>
+                    <td>Abr</td>
+                    <td>31</td>
+                  </tr>
+                  <tr>
+                    <td>May</td>
+                    <td>51</td>
+                  </tr>
+                  <tr>
+                    <td>Jun</td>
+                    <td>48</td>
+                  </tr>
+                  <tr>
+                    <td>Jul</td>
+                    <td>45</td>
+                  </tr>
+                  <tr>
+                    <td>Ago</td>
+                    <td>44</td>
+                  </tr>
+                  <tr>
+                    <td>Sep</td>
+                    <td>40</td>
+                  </tr>
+                  <tr>
+                    <td>Oct</td>
+                    <td>36</td>
+                  </tr>
+                  <tr>
+                    <td>Nov</td>
+                    <td>37</td>
+                  </tr>
+                  <tr>
+                    <td>Dic</td>
+                    <td>28</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-4" align="center" style="margin: auto;">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>2020</strong></td>
+                    <td><strong>14</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Ene</td>
+                    <td>14</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div style="font-size: 20px; margin: auto;">
+          <strong>Tickets nuevos por día (días naturales)</strong>
+        </div>
+        <div style="margin: auto;">
+          <p style="color: green;"><strong>1.4517</strong></p>
         </div>
       </div>
-    </div>
-  </div>
-</div> -->
-<br/>
-<!--Fin Reporte Semanal1-->
-<!--Inicio Reporte Semanal2-->
-<!-- <div class="container-fluid">
-  <div class="card">
-    <div class="card-body">
-      <div class="logoE2E">
-        <img class="img" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
+      <!--Fin Card 1-->
+      <br>
+      <div class="row">
+        <!--Card 2-->
+        <div class="card col-md-5">
+          <div class="card-body">
+            <div class="logoE2E">
+              <img  class="subCard" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
+            </div>
+            <div class="Subcardtitle">
+              Tickets abiertos (al corte 16-ene-2020)
+            </div>
+            <br>
+            <div align="center">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>JULIAN HERNANDEZ LUIS FERNANDO</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>LOPEZ GARCIA CARLOS GUSTAVO</td>
+                    <td>9</td>
+                  </tr>
+                  <tr>
+                    <td>MADRID PEREZ CESAR</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>11</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Card 2-->
+        <!--Card 3-->
+        <div class="card col-md-5">
+          <div class="card-body">
+            <div class="logoE2E">
+              <img class="subCard" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
+            </div>
+            <div class="Subcardtitle">
+              Tickets por estatus (al corte 16-ene-2020)
+            </div>
+            <br>
+            <div align="center">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>En Análisis Interno</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>En Proceso</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Pruebas de Usuario</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>En Espera de Información</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gran Total</strong></td>
+                    <td><strong>11</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <!--Fin Card 3-->
       </div>
-      <h5 class="card-title" align="center">Reporte Semanal #2</h5>
-      <div class="tableReport" align="center">
-        <table>
-          <thead>
-            <tr>
-              <th># Actividad</th>
-              <th>Plataforma</th>
-              <th>Actividad</th>
-              <th># Ticket/Actividad</th>
-              <th>Tiempo de Atención(hrs)</th>
-              <th>Estatus</th>
-              <th>Fecha Reporte</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Contact Center</td>
-              <td>Atención Ticket</td>
-              <td>2027344</td>
-              <td>1</td>
-              <td style="color:var(--color-pruebas);"><strong>Completado</strong></td>
-              <td>26/06/2020</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Contact Center</td>
-              <td>Atención Ticket</td>
-              <td>2027261</td>
-              <td>1</td>
-              <td style="color:var(--color-pruebas);"><strong>Pruebas</strong></td>
-              <td>26/06/2020</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Active Collab</td>
-              <td>#444: FCA_Proyecto La Fragua</td>
-              <td>#13: IDS Error al generar la nota de crédito</td>
-              <td>2</td>
-              <td style="color:var(--color-pruebas);"><strong>Completado</strong></td>
-              <td>26/06/2020</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Active Collab</td>
-              <td>Casa Diaz Hallazgos y Adecuaciones POS</td>
-              <td>#154: Rol distribuidores Activación de gerentes</td>
-              <td>8</td>
-              <td style="color:var(--color-pruebas);"><strong>Completado</strong></td>
-              <td>26/06/2020</td>
-            </tr>
-          </tbody>
-        </table>
-        <br/>
-        <div class="comentary">
-          <h5>Comentarios</h5>
-          <p>
-			<strong>
-        El desempeño que ha presentado José Antonio esta semana ha sido mejor, esta atendiendo de forma rápida y eficaz los requerimientos y/o tickets que se le asignan,
-        ya esta teniendo trato con cliente y esta atendiendo bajo procedimiento, su actitud referente a solicitar ayuda y esperar una respuesta por todo, poco a poco 
-        va disminuyendo. 
-			</strong>
-		  </p>
+    </div>
+    <!--Dashboard Tickets-->
+    <div id="dashboardTickets">
+      <br>
+        <div class="card">
+          <div class="card-body">
+            <div class="logoE2E">
+              <img class="img" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
+            </div>
+            <div class="PrimarycardTtitle">
+              DashBoard de Tickets
+            </div>
+            <div class="row">
+              <div class="col-md-4" align="center" style="margin: auto;">
+                <div id="chart_div"></div>
+              </div>
+              <div class="col-md-6" align="center" style="margin: auto;">
+                <div id="Barchart_div"></div>
+              </div>
+              <div class="col-md-8" align="center" style="margin: auto;">
+                <div id="pieChart_div"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Fin DashBoard Tickets-->
+    <!--Footer-->
+    <br>
+    <footer align="center">
+      &copy; End To End Management - <script>document.write(new Date().getFullYear());</script>  - Desarrollo de Software
+    </footer>
+    <!--Fin Footer-->
+    <!--Modal-->
+    <!--Modal Sandy-->
+    <div class="modal" tabindex="-1" role="dialog" id="SandyModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Sandra Eduwiges Gutierrez Aguilar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/VQxDkKV/sandy.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Jr.</p>
+                <p>Desarrollo web con Java y Python</p>
+                <p>Bases de datos: MySQL, Oracle Database</p>
+             </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Fin Modal Sandy-->
+    <!--Modal Luis F.-->
+    <div class="modal" tabindex="-1" role="dialog" id="LuisModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Luis Fernando Julian Hernández</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/4j5RhFN/luis-f.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Jr.</p>
+                <p>Desarrollo web y de escritorio: .Net C#</p>
+                <p>Bases de datos: SQL Server, Oracle Database</p>
+             </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div> -->
-<!--Fin Reporte Semanal2-->
-<!--Inicio Reporte Semanal3-->
-<div class="container-fluid">
-  <div class="card">
-    <div class="card-body">
-      <div class="logoE2E">
-        <img class="img" src="https://colaboracion.endtoend.com.mx/SiteAssets/logo_EndToEnd_NTBSHP2.png">
-      </div>
-      <h5 class="card-title" align="center">Reporte Semanal #3</h5>
-      <div class="tableReport" align="center">
-        <table>
-          <thead>
-            <tr>
-              <th># Actividad</th>
-              <th>Plataforma</th>
-              <th>Actividad</th>
-              <th># Ticket/Actividad</th>
-              <th>Tiempo de Atención(hrs)</th>
-              <th>Estatus</th>
-              <th>Fecha Reporte</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Contact Center</td>
-              <td>Atención Ticket</td>
-              <td>2027253</td>
-              <td>10</td>
-              <td style="color:var(--color-process);"><strong>En Proceso</strong></td>
-              <td>03/07/2020</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Contact Center</td>
-              <td>Atención Ticket</td>
-              <td>2027261</td>
-              <td>1</td>
-              <td style="color:var(--color-pruebas);"><strong>Pruebas</strong></td>
-              <td>03/07/2020</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Active Collab</td>
-              <td>#444: FCA_Proyecto La Fragua</td>
-              <td>IDS Error en el proceso de cobro en pedidos VM</td>
-              <td>16</td>
-              <td style="color:var(--color-pruebas);"><strong>Completado</strong></td>
-              <td>03/07/2020</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Active Collab</td>
-              <td>Casa Diaz Hallazgos y Adecuaciones POS</td>
-              <td>Revisión de las Ventas VI</td>
-              <td>6</td>
-              <td style="color:var(--color-pruebas);"><strong>Pruebas</strong></td>
-              <td>03/07/2020</td>
-            </tr>
-          </tbody>
-        </table>
-        <br/>
-        <div class="comentary">
-          <h5>Comentarios</h5>
-          <p>
-			<strong>
-        El desempeño que ha mostrado José Antonio esta semana ha sido bueno aunque esta presentando algunos problemas para entender la lógica de los POS 
-        (Ferreterías y Casa Diaz) por lo que aun continua solicitando apoyo para poder entender el proceso y a su vez realizar sus actividades, de igual 
-        forma se ha notado que no esta dando seguimiento a sus tickets ya que aun no tienen VoBo o comentarios por parte del cliente.
-			</strong>
-		  </p>
+    <!--Fin Modal Luis. F-->
+    <!--Modal César Madrid-->
+    <div class="modal" tabindex="-1" role="dialog" id="CesarMModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">César Madrid Pérez</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/48fHYZq/cesar-madrid.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Jr.</p>
+                <p>Desarrollo web y de escritorio: .Net C#</p>
+                <p>Bases de datos: Oracle Database</p>
+             </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<!--Fin Reporte Semanal3-->
-<!--Footer-->
-<br>
-<footer align="center">
-  &copy; End To End Management - <script>document.write(new Date().getFullYear());</script>  - Desarrollo de Software
-</footer>
-<!--Fin Footer-->
+    <!--Fin Modal César Madrid-->
+    <!--Modal Rául-->
+    <div class="modal" tabindex="-1" role="dialog" id="RaulModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Raúl Junco Villegas</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/T0p2fDw/raul.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Sr.</p>
+                <p>Desarrollo web y de escritorio: .Net C#</p>
+                <p>Bases de datos: SQL Server, Oracle Database, MySQL</p>
+                <p>Arquitectura y diseño de aplicaciones</p>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Fin Modal Raúl-->
+    <!--Modal César Octavio-->
+    <div class="modal" tabindex="-1" role="dialog" id="CesarOModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">César Octavio Vázquez Pérez</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/1Q3yMKV/cesar-vazquez.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Sr.</p>
+                <p>Desarrollo Web: Java y Android</p>
+                <p>Bases de datos: SQL Server, Oracle Database</p>
+                <p>Diseño de aplicaciones</p>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Fin Modal César Octavio-->
+    <!--Modal Francisco-->
+    <div class="modal" tabindex="-1" role="dialog" id="FranciscoModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Francisco Tafolla Carranza</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/bHtvPhk/francisco.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Jr.</p>
+                <p>Desarrollo web y de escritorio: .Net C#</p>
+                <p>Bases de datos: Oracle Database</p>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Fin Modal Francisco-->
+    <!--Modal Beatriz-->
+    <div class="modal" tabindex="-1" role="dialog" id="BeatrizModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Ana Beatriz Lechuga de Jésus</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+             <div class="imgModal">
+                 <img src="https://i.ibb.co/fMYtNGK/beatriz.jpg">
+             </div>
+             <hr>
+             <div class="descriptModal">
+                <p>Consultor Jr.</p>
+                <p>Desarrollo web y de escritorio: .Net C#</p>
+                <p>Bases de datos: Oracle Database</p>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Fin Modal Beatriz-->
+    <!--Fin Modal-->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 </html>
